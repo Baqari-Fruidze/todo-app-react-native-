@@ -1,4 +1,4 @@
-import { StyleSheet, View, TextInput, Button } from "react-native";
+import { StyleSheet, View, TextInput, Button, Modal } from "react-native";
 import { useState } from "react";
 
 export default function InputCon({ setTodoList }) {
@@ -14,15 +14,17 @@ export default function InputCon({ setTodoList }) {
     setInputValue("");
   }
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        placeholder="my course goal"
-        style={styles.inputStyles}
-        onChangeText={inputValueHander}
-        value={inputValue}
-      />
-      <Button title="add goal" onPress={addGoalHandler} />
-    </View>
+    <Modal>
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="my course goal"
+          style={styles.inputStyles}
+          onChangeText={inputValueHander}
+          value={inputValue}
+        />
+        <Button title="add goal" onPress={addGoalHandler} />
+      </View>
+    </Modal>
   );
 }
 

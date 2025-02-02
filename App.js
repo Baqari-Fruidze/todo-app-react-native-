@@ -13,12 +13,17 @@ import InputCon from "./components/InputCon";
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
+  const [modalIsActive, setModalIsActive] = useState(false);
   function itemDelete(id) {
     setTodoList((prev) => prev.filter((item) => item.key !== id));
   }
+  function foo() {
+    setModalIsActive(true);
+  }
   return (
     <View style={styles.appContainer}>
-      <InputCon setTodoList={setTodoList} />
+      <Button title="add new goal" onPress={foo} />
+      {modalIsActive && <InputCon setTodoList={setTodoList} />}
       <View style={styles.goalsCon}>
         <FlatList
           data={todoList}
