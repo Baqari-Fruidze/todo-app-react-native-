@@ -1,7 +1,7 @@
 import { StyleSheet, View, TextInput, Button, Modal } from "react-native";
 import { useState } from "react";
 
-export default function InputCon({ setTodoList }) {
+export default function InputCon({ setTodoList, active }) {
   const [inputValue, setInputValue] = useState("");
   function inputValueHander(value) {
     setInputValue(value);
@@ -14,7 +14,7 @@ export default function InputCon({ setTodoList }) {
     setInputValue("");
   }
   return (
-    <Modal>
+    <Modal visible={active} animationType="slide">
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="my course goal"

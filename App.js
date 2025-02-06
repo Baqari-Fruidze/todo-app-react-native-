@@ -22,8 +22,10 @@ export default function App() {
   }
   return (
     <View style={styles.appContainer}>
-      <Button title="add new goal" onPress={foo} />
-      {modalIsActive && <InputCon setTodoList={setTodoList} />}
+      <Button title="add new goal" onPress={foo} color={"red"} />
+      {modalIsActive && (
+        <InputCon setTodoList={setTodoList} active={modalIsActive} />
+      )}
       <View style={styles.goalsCon}>
         <FlatList
           data={todoList}
